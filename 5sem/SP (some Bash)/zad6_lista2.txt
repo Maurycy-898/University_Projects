@@ -1,0 +1,39 @@
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_1
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_2
+
+cd repo_1
+nano a.txt # dodano plik a text linia 1
+nano b.txt # dodano plik b text linia 1
+cat a.txt
+cat b.txt
+svn add a.txt b.txt
+svn commit -m 'dodano pliki a, b'
+# Dodajemy pliki a, b.txt do repozytorium
+
+svn delete b.txt
+svn commit -m 'usuwamy b'
+
+nano a.txt # dodano linie 2 do a
+svn move a.txt b.txt
+svn commit -m 'dodano linie w a, przeniesiono a do b'
+
+nano b.txt # dodano linie 2 do b
+svn commit -m 'dodano linie w b, przeniesiono b do c'
+
+nano b.txt
+svn add b.txt
+svn commit -m 'dodano nowe b'
+
+# Historia repozytorium:
+svn up
+svn log -v 
+
+# Historia pliku c.txt
+svn cat -r $nr_rewizji c.txt
+# ... itd. dla kolejnych nr rewizji
+
+svn log --diff c.txt
+# inaczej - historia pliku c.txt
+
+asciinema rec ../asciinema_vid/lista_1/zad6.cast
+exit

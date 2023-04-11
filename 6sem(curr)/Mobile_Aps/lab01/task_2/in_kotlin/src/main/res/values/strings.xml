@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">l1z2_kotlin</string>
+    <string name="game_title">Guess The Number</string>
+    <string name="restart_button">PLAY AGAIN</string>
+</resources>

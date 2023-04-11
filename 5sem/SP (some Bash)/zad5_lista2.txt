@@ -1,0 +1,51 @@
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_1
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_2
+
+cd repo_1
+svn lock test.sh -m 'locked by one'
+svn status -u
+svn diff
+# zablokowano plik
+
+cd ../repo_2
+
+svn update
+svn status -u
+nano test.sh # edytujmy teks.sh on repo 2, echo "zmiana"
+svn diff
+svn commit -m 'trying to modify the file'
+# Jak widać nie możemy zaktualizować, plik zablokowano
+
+cd ../repo_1
+svn unlock test.sh
+# zdejmujemy blokade
+
+cd ../repo_2
+svn status -u
+svn commit -m 'trying to modify the file again'
+# po zdjęciu blokady udało się przesłąć zmiany
+
+svn lock test.sh -m 'locked by two'
+# znowu blokujemy plik
+
+cd ../repo_1
+svn update
+svn status -u
+svn lock test.sh -m 'steal lock by one'
+svn lock test.sh -m 'steal lock by one' --force
+svn status -u
+# podkradliśmy blokadę z opcją --force
+# teraz repo_1 jest właścicielem blokady
+
+cd ../repo_2
+svn update
+svn status -u
+svn unlock test.sh
+svn unlock test.sh --force
+svn status -u
+# z użyciem --force zerwaliśmy blokadę na repo_2
+
+# Koniec Zadania 5
+
+asciinema rec ../asciinema_vid/lista_1/zad5.cast
+exit

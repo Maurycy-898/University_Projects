@@ -1,0 +1,48 @@
+SET 0  
+STORE 5
+LOAD 2
+JZERO 20
+STORE 4
+HALF
+STORE 2
+ADD 0
+STORE 3
+LOAD 4
+SUB 3
+JZERO 16
+LOAD 1
+ADD 5
+STORE 5
+LOAD 1
+ADD 0
+STORE 1  
+JUMP 3
+JUMPI 6
+
+
+# MNOŻENIE (zmienna1 * zmienna2):
+p0 - acc
+p1 - zmienna1
+p2 - zmienna2
+p3 - pom1
+p4 - pom2
+p5 - wynik
+
+# ALGORYTM (pseudokod):
+wynik = 0
+DO
+	IF zmienna2 == 0 THEN
+		end_mult  #end multipication
+	ENDIF
+
+	pom2 = zmienna2
+	zmienna2 /= 2
+	pom1 = zmienna2 * 2
+
+	IF (pom2 - pom1 > 0) THEN
+		wynik += zmienna1
+	ENDIF
+	
+	zmienna1 *= 2
+	
+WHILE TRUE

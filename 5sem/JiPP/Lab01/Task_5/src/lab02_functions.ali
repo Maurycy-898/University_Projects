@@ -1,0 +1,42 @@
+V "GNAT Lib v11"
+P ZX
+
+RN
+
+U lab02_functions%s	lab02_functions.ads	fceea404 NE OO PK IL
+
+D lab02_functions.ads	20221025191316 fceea404 lab02_functions%s
+D system.ads		20220423070018 2ffa5114 system%s
+G a e
+G c Z s s [factorial lab02_functions 10 13 none]
+G c Z s s [factorial_recur lab02_functions 16 13 none]
+G c Z s s [gcd lab02_functions 22 13 none]
+G c Z s s [gcd_recur lab02_functions 28 13 none]
+G c Z s s [equation lab02_functions 34 13 none]
+G c Z s s [equation_recur lab02_functions 40 13 none]
+G c Z s s [sollutionIP lab02_functions 3 9 none]
+X 1 lab02_functions.ads
+1K9*lab02_functions 46l5 46e20
+3R9*sollution 8e7 34r80 40r86
+4i7*X{integer}
+5i7*Y{integer}
+6b7*IsCorrect{boolean}
+10V13*factorial{integer} 10>23
+10i23 N{integer}
+16V13*factorial_recur{integer} 16>29
+16i29 N{integer}
+22V13*gcd{integer} 22>17 22>34
+22i17 Arg_A{integer}
+22i34 Arg_B{integer}
+28V13*gcd_recur{integer} 28>23 28>40
+28i23 Arg_A{integer}
+28i40 Arg_B{integer}
+34V13*equation{3R9} 34>22 34>39 34>56
+34i22 Arg_A{integer}
+34i39 Arg_B{integer}
+34i56 Arg_C{integer}
+40V13*equation_recur{3R9} 40>28 40>45 40>62
+40i28 Arg_A{integer}
+40i45 Arg_B{integer}
+40i62 Arg_C{integer}
+

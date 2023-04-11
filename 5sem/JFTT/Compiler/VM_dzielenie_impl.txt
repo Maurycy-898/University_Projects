@@ -1,0 +1,47 @@
+# A / B
+# 1 - A, potem reszta
+# 2 - B, 
+# 3 - wynik
+# 4 - pom - tmp B
+# 5 - back adres
+
+
+LOAD 1
+JZERO div_0
+LOAD 2
+JZERO div_0
+STORE 4
+SUB 1 //loop1
+JPOS end_loop1
+LOAD 4 
+ADD 0
+STORE 4
+JUMP loop1
+
+SET 0 //end_loop1
+STORE 3
+
+LOAD 4 //loop2
+HALF 
+STORE 4
+LOAD 2
+SUB 4
+JPOS end
+LOAD 3
+ADD 0
+LOAD 4
+SUB 1
+JPOS loop2
+SET 1
+ADD 3
+STORE 3
+LOAD 1
+SUB 4
+STORE 1
+JUMP loop_2
+
+SET 0 //div_0
+STORE 3
+STORE 1
+
+JUMPI 5 //end

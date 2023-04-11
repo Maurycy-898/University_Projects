@@ -1,0 +1,31 @@
+Kompilator JFTT (Folder z ostateczną wersją)
+Autor: Maurycy Sosnowski (261705)
+
+
+Opisy plików:
+    Compiler.py: kompilator - wczytuje zadany plik wejściowy, następnie, 
+                 korzystając z lexera i parsera, przekłada go na instrukcje 
+                 dla maszyny wirtualnej zapisywane do pliku wyjściowego.  
+
+    LexerAndParser.py: Zawiera implementacje lexera i parsera w języku python,
+                       korzysta z biblioteki sly, a także ze struktur i funkcji 
+                       z pliku CompilerUtils.py.   
+
+    CompilerUtils.py: Zawiera przydatne struktury (klasy) przechowujące zmienne i funkcje generujące, 
+                      instrukcje, są one wykorzystywane w implementacji kompilatora (dokładniej parsera).
+
+
+Używane przeze mnie wersje pythona:
+    3.10.5 / 3.10.6 (powinno działać dla wszystkich wersji pythona od 3.6)
+
+
+Potrzebne (wykorzystane) biblioteki: 
+    sly, copy, enum
+    (enum i copy powinny być już zainstalowane bo to standardowe biblioteki pythona)
+    (instalacja pakietu sly: pip3 install sly)
+
+
+Uruchamianie: 
+    (Linux)  python3 Compiler.py <nazwa pliku-wejściowego> <nazwa pliku wyjściowego>
+lub :
+    (Windows) python Compiler.py <nazwa pliku-wejściowego> <nazwa pliku wyjściowego>

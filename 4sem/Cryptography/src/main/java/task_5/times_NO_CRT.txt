@@ -1,0 +1,8 @@
+Bit-length: 128 ,average time: 33282 ns
+Bit-length: 256 ,average time: 115837 ns
+Bit-length: 512 ,average time: 666221 ns
+Bit-length: 1024 ,average time: 5116065 ns
+Bit-length: 1536 ,average time: 16840279 ns
+Bit-length: 2048 ,average time: 31855558 ns
+Bit-length: 3072 ,average time: 110944529 ns
+Bit-length: 4096 ,average time: 375146496 ns

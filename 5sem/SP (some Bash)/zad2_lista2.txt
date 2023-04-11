@@ -1,0 +1,26 @@
+repo=https://repo.cs.pwr.edu.pl/261705
+
+# drzewo katalogów na którym będziemy pracować
+svn ls $repo/a
+
+# prezentacja wszystkich typów "sparse directories" 
+
+svn export $repo/a/a --depth empty empty
+
+svn export $repo/a/b --depth files files
+
+svn export $repo/a/b --depth immediates immediates
+
+svn export $repo/a/b --depth infinity infinity
+
+
+# wygląd poszczególnych typów "sparse directories" z użyciem "tree"
+tree empty
+tree files
+tree immediates
+tree infinity
+
+# Koniec zadania 2
+
+asciinema rec ../asciinema_vid/lista_1/zad2.cast
+exit

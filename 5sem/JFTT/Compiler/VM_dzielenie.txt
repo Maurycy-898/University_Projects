@@ -1,0 +1,108 @@
+LOAD 2
+JZERO end
+
+
+
+# DZIELENIE 
+val1 / val2
+1 - val1
+2 - val2
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# a, b
+
+c = b
+
+while b <= a do
+	c = 2c
+endwhile
+
+wynik = 0
+
+do
+	c /= 2
+	
+	if c < b
+		break (return wynik)
+	endif
+	
+	wynik *= 2
+	
+	if a >= b
+		wynik += 1
+		a -= b
+	endif
+while true
+# ----------------------------------------------------------------------------------------------------------------------
+	
+# ----------------------------------------------------------------------------------------------------------------------	
+# Division: N / D = Q + R
+
+if D = 0 then error(DivisionByZeroException) end
+Q := 0                  -- Initialize quotient and remainder to zero
+R := 0                     
+for i := n − 1 .. 0 do  -- Where n is number of bits in N
+  R := R << 1           -- Left-shift R by 1 bit
+  R(0) := N(i)          -- Set the least-significant bit of R equal to bit i of the numerator
+  if R ≥ D then
+    R := R − D
+    Q(i) := 1
+  end
+end
+# ----------------------------------------------------------------------------------------------------------------------
+
+					GET A        # 0
+                    GET B        # 1
+					
+                    # Handle x/0 and 0/x
+                    JZERO A 26   # 2  jump to DIV0a
+                    JZERO B 25   # 3  jump to DIV0b
+                    SUB C C      # 4
+					
+                    # LSH B while it's <= A, count iterations in C
+                    # (B - A) <= 0 ==> B <= A
+                    COPY D B     # 5  LSHLOOP
+                    SUB D A      # 6
+                    JZERO D 9    # 7  jump to LSHCONT
+                    JUMP 12      # 8  jump to LSHDONE
+                    ADD B B      # 9  LSHCONT
+                    INC C        # 10
+                    JUMP 5       # 11 jump to LSHLOOP
+                    
+					# if the C counter is 0, it means that B > A and thus it's an easy case, Q = 0, R = A
+                    JZERO C 26   # 12 jump to EZCASE, LSHDONE
+                    
+					# D holds quotient (Q)
+                    SUB D D      # 13
+                    
+					# loop C --> 0
+                    # double quotient, half divider
+                    HALF B       # 14 LOOPLOOP
+                    DEC C        # 15
+                    ADD D D      # 16
+                    
+					# if B <= A then A-=B, D+=1
+                    # (B - A) <= 0 ==> B <= A
+                    COPY E B     # 17
+                    SUB E A      # 18
+                    JZERO E 22   # 19 jump to THEN
+                    # end if;
+                    
+					JZERO C 27   # 20 jump to FINISHED, ENDIF
+                    JUMP 14      # 21 jump to LOOPLOOP
+                    
+					# then... block
+                    SUB A B      # 22 THEN
+                    INC D        # 23
+                    JUMP 20      # 24 jump to ENDIF
+                    
+					# div0 block
+                    SUB A A      # 25 DIV0b
+                    SUB D D      # 26 DIV0a, EZCASE (no A setting)
+                    
+					# finish
+                    PUT D        # 27 FINISHED, print Q
+                    PUT A        # 28 print R
+                    HALT
+					

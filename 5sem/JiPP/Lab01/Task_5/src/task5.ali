@@ -1,0 +1,98 @@
+V "GNAT Lib v11"
+M P W=b
+P SS ZX
+
+RN
+RV NO_IO
+RV NO_SECONDARY_STACK
+RV NO_DYNAMIC_SIZED_OBJECTS
+
+U task5%b		task5.adb		2692d75a NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W lab02_functions%s	lab02_functions.ads	lab02_functions.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
+Z system.concat_6%s	s-conca6.adb		s-conca6.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.val_int%s	s-valint.ads		s-valint.ali
+
+D ada.ads		20220423070018 76789da1 ada%s
+D a-except.ads		20220423070018 449c9b65 ada.exceptions%s
+D a-inteio.ads		20220423070018 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20220423070018 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20220423070018 119b8fb3 ada.streams%s
+D a-tags.ads		20220423070018 9eaa38c6 ada.tags%s
+D a-textio.ads		20220423070018 aef4d56d ada.text_io%s
+D a-tiinio.ads		20220423070018 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20220423070018 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20220423070018 edec285f interfaces%s
+D i-cstrea.ads		20220423070018 e53d8b8e interfaces.c_streams%s
+D lab02_functions.ads	20221025191316 fceea404 lab02_functions%s
+D system.ads		20220423070018 2ffa5114 system%s
+D s-conca4.ads		20220423070018 7e642b20 system.concat_4%s
+D s-conca6.ads		20220423070018 d2c72db2 system.concat_6%s
+D s-crtl.ads		20220423070018 0ebbdb71 system.crtl%s
+D s-exctab.ads		20220423070018 54135002 system.exception_table%s
+D s-ficobl.ads		20220423070018 078245e4 system.file_control_block%s
+D s-imagei.ads		20220423070018 0d3f86a7 system.image_i%s
+D s-imgint.ads		20220423070018 bdb6f5ec system.img_int%s
+D s-parame.ads		20220423070018 4752c4cb system.parameters%s
+D s-secsta.ads		20220423070018 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20220423070018 a7318a92 system.soft_links%s
+D s-stache.ads		20220423070018 a37c21ec system.stack_checking%s
+D s-stalib.ads		20220423070018 0f2d51ff system.standard_library%s
+D s-stoele.ads		20220423070018 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20220423070018 ed88f8fb system.storage_elements%b
+D s-traent.ads		20220423070018 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20220423070018 eea7525d system.unsigned_types%s
+D s-valint.ads		20220423070018 e7fcadb7 system.val_int%s
+D s-valuns.ads		20220423070018 dac7b45d system.val_uns%s
+D s-valuei.ads		20220423070018 978dd0a6 system.value_i%s
+D s-valueu.ads		20220423070018 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20220423070018 1b7d22d2 system.wch_con%s
+D task5.adb		20221025193646 82c32f97 task5%b
+G a e
+G c Z b b [task5 standard 5 11 none]
+G r c none [task5 standard 5 11 none] [factorial_recur lab02_functions 16 13 none]
+G r c none [task5 standard 5 11 none] [gcd lab02_functions 22 13 none]
+G r c none [task5 standard 5 11 none] [gcd_recur lab02_functions 28 13 none]
+G r c none [task5 standard 5 11 none] [equation lab02_functions 34 13 none]
+G r c none [task5 standard 5 11 none] [equation_recur lab02_functions 40 13 none]
+G r c none [task5 standard 5 11 none] [factorial lab02_functions 10 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 35|1r6 1r23 2r6 2r31
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[8|46] 35|2w10 2r35
+X 7 a-textio.ads
+58K13*Text_IO 728e16 35|1w10 1r27
+496V13*Get_Line{string} 35|23s31 28s30 33s30 38s30 39s30 45s30 46s30 52s30
+. 53s30 54s30 67s30 68s30 69s30
+509U14*Put_Line 35|13s7 14s7 15s7 16s7 17s7 18s7 19s7 20s7 21s7 26s10 27s10
+. 30s10 32s10 35s10 37s10 41s10 44s10 48s10 51s10 57s13 63s13 66s10 72s13
+. 78s13
+X 12 lab02_functions.ads
+1K9*lab02_functions 46e20 35|3w6 3r27
+3R9*sollution 8e7 35|9r8
+4i7*X{integer} 35|60r55 75r55
+5i7*Y{integer} 35|61r51 76r51
+6b7*IsCorrect{boolean} 35|56r16 71r16
+10V13*factorial{integer} 35|29s15
+16V13*factorial_recur{integer} 35|34s15
+22V13*gcd{integer} 35|40s15
+28V13*gcd_recur{integer} 35|47s15
+34V13*equation{3R9} 35|55s15
+40V13*equation_recur{3R9} 35|70s15
+X 35 task5.adb
+5U11*task5 5b11 85l5 85t10
+6b4 Stay_In_Loop{boolean} 12r10 81m10
+7i4 Action{integer} 23m7 25r11 31r14 36r14 43r14 50r14 65r14
+8i4 N{integer} 29m10 30r82 34m10 35r82 40m10 42r74 47m10 49r75
+8i7 N1{integer} 28m10 29r25 30r51 33m10 34r31 35r51 38m10 40r19 41r66 45m10
+. 47r25 48r66 52m10 55r24 57r53 67m10 70r30 72r53
+8i11 N2{integer} 39m10 40r23 42r42 46m10 47r29 49r42 53m10 55r28 58r47 68m10
+. 70r34 73r47
+8i15 N3{integer} 54m10 55r32 59r47 69m10 70r38 74r47
+9r4 S{12|3R9} 55m10 56r14 60r53 61r49 70m10 71r14 75r53 76r49
+

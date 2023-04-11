@@ -1,0 +1,44 @@
+
+#Tworzenie 2 kopii roboczych repozytorium
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_1
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_2
+
+# stworzyć nowy plik i dodać do repo_1
+cd repo_1
+nano test_file
+svn status
+svn add test_file
+svn commit -m 'added test_file'
+
+cd ../repo_2
+svn update
+cat test_file
+nano test_file # wprowadzić zmiany do pliku
+cat test_file
+svn commit -m 'modified test_file'
+
+cd ../repo_1
+nano test_file
+svn commit -m 'modified test_file again' # powinien być konflikt
+svn update
+svn status
+
+cat test_file # wszystkie wersje pliku
+
+# zawartości plików ze znacznikami konfliktu
+cat test_file.mine
+cat test_file.rx
+cat test_file.ry
+
+svn resolve test_file # rozwiązanie konfliktu, przyjmujemy nową wersje
+cat test_file
+svn commit -m 'resolved conflict in test_file'
+cd ../repo_2
+cat test_file
+
+svn log -v | head -n 20 #Historia commitów
+
+# Koniec zadania 1
+
+asciinema rec ../asciinema_vid/lista_1/zad1.cast
+exit

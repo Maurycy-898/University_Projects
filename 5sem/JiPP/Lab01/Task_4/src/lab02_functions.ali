@@ -1,0 +1,105 @@
+V "GNAT Lib v11"
+P ZX
+
+RN
+RV NO_IO
+RV NO_RECURSION
+
+U lab02_functions%b	lab02_functions.adb	4331289f NE OO PK IL
+W ada%s			ada.ads			ada.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+
+U lab02_functions%s	lab02_functions.ads	9d3d9c82 EE NE OO PK IL
+
+D ada.ads		20220423070018 76789da1 ada%s
+D a-except.ads		20220423070018 449c9b65 ada.exceptions%s
+D a-ioexce.ads		20220423070018 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20220423070018 119b8fb3 ada.streams%s
+D a-tags.ads		20220423070018 9eaa38c6 ada.tags%s
+D a-textio.ads		20220423070018 aef4d56d ada.text_io%s
+D a-unccon.ads		20220423070018 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20220423070018 edec285f interfaces%s
+D i-cstrea.ads		20220423070018 e53d8b8e interfaces.c_streams%s
+D lab02_functions.ads	20221025190102 9d3d9c82 lab02_functions%s
+D lab02_functions.adb	20221025190148 70f86170 lab02_functions%b
+D system.ads		20220423070018 2ffa5114 system%s
+D s-crtl.ads		20220423070018 0ebbdb71 system.crtl%s
+D s-exctab.ads		20220423070018 54135002 system.exception_table%s
+D s-ficobl.ads		20220423070018 078245e4 system.file_control_block%s
+D s-parame.ads		20220423070018 4752c4cb system.parameters%s
+D s-secsta.ads		20220423070018 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20220423070018 a7318a92 system.soft_links%s
+D s-stache.ads		20220423070018 a37c21ec system.stack_checking%s
+D s-stalib.ads		20220423070018 0f2d51ff system.standard_library%s
+D s-stoele.ads		20220423070018 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20220423070018 ed88f8fb system.storage_elements%b
+D s-traent.ads		20220423070018 26a8d361 system.traceback_entries%s
+D s-wchcon.ads		20220423070018 1b7d22d2 system.wch_con%s
+G a e
+G c Z s b [new_sollution lab02_functions 10 13 none]
+G c Z s b [factorial lab02_functions 12 13 none]
+G c Z s b [factorial_recur lab02_functions 18 13 none]
+G c Z s b [gcd lab02_functions 24 13 none]
+G c Z s b [gcd_recur lab02_functions 30 13 none]
+G c Z s b [equation lab02_functions 36 13 none]
+G c Z s b [equation_recur lab02_functions 42 13 none]
+G c Z s s [sollutionIP lab02_functions 3 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|1r6 1r23
+X 6 a-textio.ads
+58K13*Text_IO 728e16 11|1w10 1r27
+X 10 lab02_functions.ads
+1K9*lab02_functions 48l5 48e20 11|3b14 105l5 105t20
+3R9*sollution 8e7 10r81 36r80 42r86 11|5r81 6r11 60r80 87r86 89r11
+4i7*X{integer} 11|101r39
+5i7*Y{integer} 11|101r33 101r55
+6b7*IsCorrect{boolean} 11|101r61
+10V13*new_sollution{3R9} 10>27 10>40 10>53 11|5b13 10l8 10t21 80s17 82s17
+. 95s20 97s20 101s17
+10i27 X{integer} 11|5b27 8r13
+10i40 Y{integer} 11|5b40 8r16
+10b53 IsCorrect{boolean} 11|5b53 8r19
+12V13*factorial{integer} 12>23 11|13b13 21l8 21t17
+12i23 N{integer} 11|13b23 16r21
+18V13*factorial_recur{integer} 18>29 11|24b13 30s18 31l8 31t23
+18i29 N{integer} 11|24b29 26r10 30r14 30r34
+24V13*gcd{integer} 24>17 24>34 11|34b13 45l8 45t11
+24i17 Arg_A{integer} 11|34b17 37r12
+24i34 Arg_B{integer} 11|34b34 37r24
+30V13*gcd_recur{integer} 30>23 30>40 11|48b13 55s17 57l8 57t17
+30i23 Arg_A{integer} 11|48b23 49r22
+30i40 Arg_B{integer} 11|48b40 50r22
+36V13*equation{3R9} 36>22 36>39 36>56 11|60b13 84l8 84t16
+36i22 Arg_A{integer} 11|60b22 63r16 64r12
+36i39 Arg_B{integer} 11|60b39 63r32 64r24
+36i56 Arg_C{integer} 11|60b56 64r36
+42V13*equation_recur{3R9} 42>28 42>45 42>62 11|87b13 100s15 103l8 103t22
+42i28 Arg_A{integer} 11|87b28 91r12
+42i45 Arg_B{integer} 11|87b45 91r24
+42i62 Arg_C{integer} 11|87b62 91r36
+X 11 lab02_functions.adb
+6r7 S{10|3R9} 8m7 9r14
+14i7 F{integer} 17m10 17r15 20r14
+16i11 I{integer} 17r19
+35i7 Old_A{integer} 40m10 41r15
+35i14 A{integer} 37m7 40r19 40m22 44r14
+35i17 B{integer} 37m19 39r13 40r27 41m10 41r25
+49i7 A{integer} 53r17 55r30
+50i7 B{integer} 52r10 55r27 55r36
+61i7 A{integer} 64m7 68r15 75r17 75m20 79r17 82r41 82r56
+61i10 Old_A{integer} 63m7
+61i17 B{integer} 64m19 67r13 68r19 75r25 76m10 76r23
+61i20 Old_B{integer} 63m23
+61i27 C{integer} 64m31 79r11 82r37 82r52
+61i30 Q{integer} 68m10 71r22 73r22
+61i33 TMP{integer} 70m10 71r16 72m10 73r16 75m10 76r15
+61i38 X{integer} 65m7 70r17 70m20 82r32
+61i41 X1{integer} 65m15 70r25 71m10 71r26
+61i45 Y{integer} 65m24 72r17 72m20 82r47
+61i48 Y1{integer} 65m32 72r25 73m10 73r26
+88i7 A{integer} 91m7 94r20 97r39 100r33 101r44
+88i10 B{integer} 91m19 93r10 100r30 100r39 101r48
+88i13 C{integer} 91m31 94r14 97r35 100r42
+89r7 S{10|3R9} 100m10 101r31 101r37 101r53 101r59
+

@@ -1,0 +1,50 @@
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_1
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_2
+
+cd repo_1
+nano test.sh
+
+# #!/bin/bash
+# echo "test script"
+
+cat test.sh
+
+ll
+svn add test.sh
+svn commit -m 'dodano plik testowy do zadania 3, lista 2'
+./test.sh
+# plik nie jest wykonywalny
+svn propset svn:executable on test.sh
+./test.sh
+ll
+
+svn status
+svn diff
+# svn wykrył iż dodano nową własność do pliku, plik "test.sh" jest teraz wykonywalny 
+svn add test.sh
+svn commit -m 'dodano wlasnosc svn:executable'
+
+cd ../repo_2
+svn update
+ll
+./test.sh
+# jak widać, własność - svn:executable została poprawnie przesłana
+
+svn propdel svn:executable on test.sh # usuwamy własność
+svn status
+svn diff
+./test.sh
+# jak widać własność zostałą usunięta
+svn add test.sh
+svn commit -m 'usunieto wlasnosc svn:executable'
+
+cd ../repo_1
+svn update
+ll
+./test.sh
+# jak widać, usunięta własność - svn:executable została poprawnie przesłana
+
+# Koniec zadania 3
+
+asciinema rec ../asciinema_vid/lista_1/zad3.cast
+exit

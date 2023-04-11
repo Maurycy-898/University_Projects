@@ -1,0 +1,24 @@
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_1
+svn checkout https://repo.cs.pwr.edu.pl/261705 repo_2
+
+cd repo_1
+svn propset svn:externals "externals https://repo.cs.pwr.edu.pl/info/" .
+svn up
+svn status
+svn diff
+svn commit -m 'dodano folder externals'
+# komenda "svn up" pobrała całe repozytorium zewnętrzne do folderu "externals"
+
+cd ../repo_2
+svn up --ignore-externals
+svn proptget svn:externals .
+
+# Widać, że własność svn:externals poprawnie zachowano
+# Dzięki opcji --ignore-externals, przy uaktualnieniu, nie pobrano  repozytorium zewnętrznego 
+# To samo ma miejsce z 'svn co' (svn checkout)
+
+# Koniec Zadania 4
+svn propdel svn:externals . # usunięcie externals
+
+asciinema rec ../asciinema_vid/lista_1/zad4.cast
+exit

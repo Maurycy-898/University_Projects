@@ -1,0 +1,157 @@
+V "GNAT Lib v11"
+M P W=b
+A -gnateE
+P SS ZX
+
+RN
+RV SIMPLE_BARRIERS
+RV NO_ALLOCATORS
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_LOCAL_PROTECTED_OBJECTS
+RV NO_NESTED_FINALIZATION
+RV NO_PROTECTED_TYPES
+RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_ALLOCATORS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLICIT_LOOPS
+RV MAX_PROTECTED_ENTRIES=1
+RV MAX_TASKS=1+
+RV MAX_ENTRY_QUEUE_LENGTH=1+
+
+U philosophers%b	philosophers.adb	4a2ab094 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.float_random%s  a-nuflra.adb	a-nuflra.ali
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system%s		system.ads		system.ali
+Z system.concat_3%s	s-conca3.adb		s-conca3.ali
+Z system.concat_5%s	s-conca5.adb		s-conca5.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+Z system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+Z system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20220423070018 76789da1 ada%s
+D a-calend.ads		20220423070018 474d9720 ada.calendar%s
+D a-caldel.ads		20220423070018 9f20b83d ada.calendar.delays%s
+D a-except.ads		20220423070018 449c9b65 ada.exceptions%s
+D a-finali.ads		20220423070018 bf4f806b ada.finalization%s
+D a-ioexce.ads		20220423070018 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20220423070018 84bea7a3 ada.numerics%s
+D a-nuflra.ads		20220423070018 4056ab7a ada.numerics.float_random%s
+D a-reatim.ads		20220423070018 0240fc73 ada.real_time%s
+D a-stream.ads		20220423070018 119b8fb3 ada.streams%s
+D a-string.ads		20220423070018 90ac6797 ada.strings%s
+D a-stteou.ads		20220423070018 e7ab1e2a ada.strings.text_output%s
+D a-stuten.ads		20220423070018 808c40ad ada.strings.utf_encoding%s
+D a-suezst.ads		20220423070018 1161e3f6 ada.strings.utf_encoding.wide_wide_strings%s
+D a-tags.ads		20220423070018 9eaa38c6 ada.tags%s
+D a-textio.ads		20220423070018 aef4d56d ada.text_io%s
+D a-unccon.ads		20220423070018 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20220423070018 edec285f interfaces%s
+D i-c.ads		20220423070018 c624fa43 interfaces.c%s
+D i-cstrin.ads		20220423070018 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20220423070018 e53d8b8e interfaces.c_streams%s
+D philosophers.adb	20230201111048 a488ce83 philosophers%b
+D system.ads		20220423070018 2ffa5114 system%s
+D s-atacco.ads		20220423070018 4c36d12f system.address_to_access_conversions%s
+D s-conca3.ads		20220423070018 0b705ca5 system.concat_3%s
+D s-conca5.ads		20220423070018 875e432e system.concat_5%s
+D s-crtl.ads		20220423070018 0ebbdb71 system.crtl%s
+D s-exctab.ads		20220423070018 54135002 system.exception_table%s
+D s-ficobl.ads		20220423070018 078245e4 system.file_control_block%s
+D s-finmas.ads		20220423070018 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20220423070018 4ff27390 system.finalization_root%s
+D s-imagei.ads		20220423070018 0d3f86a7 system.image_i%s
+D s-imgint.ads		20220423070018 bdb6f5ec system.img_int%s
+D s-multip.ads		20220423070018 38ac9f73 system.multiprocessors%s
+D s-osinte.ads		20220423070018 97504df8 system.os_interface%s
+D s-parame.ads		20220423070018 4752c4cb system.parameters%s
+D s-rannum.ads		20220423070018 60650134 system.random_numbers%s
+D s-secsta.ads		20220423070018 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20220423070018 a7318a92 system.soft_links%s
+D s-stache.ads		20220423070018 a37c21ec system.stack_checking%s
+D s-stausa.ads		20220423070018 017a0a05 system.stack_usage%s
+D s-stalib.ads		20220423070018 0f2d51ff system.standard_library%s
+D s-stoele.ads		20220423070018 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20220423070018 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20220423070018 e9fa2dd8 system.storage_pools%s
+D s-tasinf.ads		20220423070018 601f6b72 system.task_info%s
+D s-taspri.ads		20220423070018 a1350802 system.task_primitives%s
+D s-taprop.ads		20220423070018 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20220423070018 88fba9ad system.tasking%s
+D s-taprob.ads		20220423070018 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20220423070018 60ad3dae system.tasking.protected_objects.entries%s
+D s-tpobop.ads		20220423070018 5f548bb3 system.tasking.protected_objects.operations%s
+D s-tassta.ads		20220423070018 cca55c94 system.tasking.stages%s
+D s-traent.ads		20220423070018 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20220423070018 eea7525d system.unsigned_types%s
+D s-wchcon.ads		20220423070018 1b7d22d2 system.wch_con%s
+D s-win32.ads		20220423070018 15ac53fb system.win32%s
+D unchconv.ads		20220423070018 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [philosophers standard 4 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 22|1r6 1r38 2r6 2r38
+X 7 a-numeri.ads
+16K13*Numerics 35e17 22|1r10 1r42
+X 8 a-nuflra.ads
+41K22*Float_Random 74e30 22|1w19 1r51
+47R9*Generator<37|65R9> 22|28r19
+49F12*Uniformly_Distributed{float}
+51V13*Random{49F12}<37|73p13> 22|31s25 37s33 41s33 45s33 48s33 53s33 57s33
+. 60s33 63s33 67s33 71s33 74s33 79s33 83s33 87s33
+53U14*Reset<37|103p14> 22|33s9
+X 16 a-textio.ads
+58K13*Text_IO 728e16 22|2w10 2r42
+509U14*Put_Line 22|36s17 40s17 44s17 47s17 52s17 56s17 59s17 62s17 66s17
+. 70s17 73s17 78s17 82s17 85s17
+X 22 philosophers.adb
+4U11*Philosophers 4b11 102l5 102t17
+5N5 Dishes_To_Eat 34r21
+6N5 Philosophers_NO 94r22 95r34 98r17 99r99
+8W20 Fork 12E9 13l9 13e13 15b20 24l9 24t13 26r105 94r50
+9Y15 Pick_Up 16b15 19l13 19t20 39s27 43s28 65s28 69s27
+10U19 Put_Down 20b19 23l13 23t21 51s28 55s27 77s27 81s28
+12b9 Taken{boolean} 16r32 18r13 22r13
+26T15 Philosopher 26d28 26d41 26d66 26d77 27b15 90l9 90t20 92r36 99r37
+26i28 ID{integer} 36r56 40r56 44r56 47r56 52r56 56r56 59r56 62r56 66r56 70r56
+. 73r56 78r56 82r56 85r56
+26b41 Is_Left_Handed{boolean} 35r16
+28r9 Rand_Gen{8|47R9} 31r32 33r15 37r40 41r40 45r40 48r40 53r40 57r40 60r40
+. 63r40 67r40 71r40 74r40 79r40 83r40 87r40
+29i9 Dishes_Eaten{integer} 49m17 49r33 59r92 75m17 75r33 86r42
+34i13 i{integer}
+92P10 Ptr_Philosopher(26T15) 95r62
+94a5 Forks(8W20) 99m69 99r69 99m86 99r86
+95a5 Philosopher_Group(92P10) 99m9
+98i9 j{integer} 99r27 99r49 99r54 99r75 99r93
+X 41 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+

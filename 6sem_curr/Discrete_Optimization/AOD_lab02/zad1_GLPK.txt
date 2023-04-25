@@ -1,0 +1,54 @@
+/* Author: Maurycy Sosnowski */
+
+/* Companies */
+set Companies;
+
+/* Airports */
+set Airports;
+
+/* Companies galons supply limit */
+param galons_limit{c in Companies};
+
+/* Galons needed monthly for airport */
+param required_galons{a in Airports};
+
+/* Transport cost for each case */
+param costs{c in Companies, a in Airports};
+
+/* Shipment quantities */
+var x{c in Companies, a in Airports} >= 0;
+
+/* Minimize the total cost */
+minimize cost: sum{c in Companies, a in Airports} costs[c, a] * x[c, a]; 
+
+/* Make sure to stay within supply limit */
+s.t. supply{c in Companies}: sum{a in Airports} x[c, a] <= galons_limit[c];
+
+/* Satisfy the demand for each airport */
+s.t. demand{a in Airports}: sum{c in Companies} x[c, a] >= required_galons[a];
+
+
+/* -------------------------------------------- PARAMS ----------------------------------------- */
+data;
+
+set Companies := Company1 Company2 Company3;
+
+set Airports := Airport1 Airport2 Airport3 Airport4;
+
+param galons_limit := 
+Company1   275000
+Company2   550000
+Company3   660000;
+
+param required_galons := 
+Airport1     110000
+Airport2     220000
+Airport3     330000
+Airport4     440000;
+
+param costs :              Airport1   Airport2   Airport3   Airport4 :=
+           		   Company1    10         10         9          11        
+           		   Company2    7          11         12         13
+           		   Company3    8          14         4          9;
+
+end;

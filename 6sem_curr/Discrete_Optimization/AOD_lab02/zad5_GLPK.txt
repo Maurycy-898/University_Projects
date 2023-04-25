@@ -1,0 +1,83 @@
+/* Author: Maurycy Sosnowski */
+
+/* The set of products */
+set products;
+
+/* The set of machines */
+set machines;
+
+/* The time of production per kilogram of product: p on machine: m, in minutes */
+param production_time{p in products, m in machines};
+
+/* The weekly availability of each machine: m, in hours */
+param machine_weekly_time{m in machines};
+
+/* The price for kilogram of each product: p, in dollars */
+param products_price{p in products};
+
+/* The cost for hour of production on machine: m, in dollars */
+param machines_cost{m in machines};
+
+/* The cost of material used to produce a kilogram of product: p, in dollars */
+param materials_cost{p in products};
+
+/* The max weekly demand for each product: p, in kilograms */
+param weekly_demand{p in products};
+
+/* The weekly production of each product: p, in kilograms */
+var x{p in products} >= 0;
+
+/* Maximize the total weekly profit, in dollars */
+maximize profit: 
+(sum{p in products} x[p] * (products_price[p] - materials_cost[p])) - 
+(sum{p in products, m in machines} machines_cost[m] * x[p] * production_time[p, m] / 60);
+
+/* Make sure to not exceed weekly availability of each product */
+s.t. totalTime{m in machines}: 
+(sum{p in products} x[p] * production_time[p, m]) <= (60 * machine_weekly_time[m]);
+
+/* Make sure to not cross max demand for each product */
+s.t. demand{p in products}: x[p] <= weekly_demand[p];
+
+
+/* -------------------------------------------- PARAMS ----------------------------------------- */
+data;
+
+set products := P1 P2 P3 P4;
+
+set machines := M1 M2 M3;
+
+param machine_weekly_time := 
+M1  60
+M2  60
+M3  60;
+
+param production_time:     M1  M2  M3 :=
+                       P1  5   10  6
+                       P2  3   6   4
+                       P3  4   5   3
+                       P4  4   2   1;
+param products_price := 
+P1  9
+P2  7
+P3  6
+P4  5;
+
+param machines_cost := 
+M1 2
+M2 2
+M3 3;
+
+param materials_cost := 
+P1  4
+P2  1
+P3  1
+P4  1;
+
+param weekly_demand := 
+P1  400
+P2  100
+P3  150
+P4  500;
+
+end;

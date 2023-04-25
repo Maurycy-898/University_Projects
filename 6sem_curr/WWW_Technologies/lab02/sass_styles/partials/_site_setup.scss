@@ -1,0 +1,19 @@
+	* {
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+  }
+
+	body, html {
+    font-family: $base-font-family;
+    font-size: $base_font_size;
+    height: 100%;
+  }
+
+  body {
+    background-image: $bg-img;
+		background-attachment:fixed;
+    background-position: center;
+		background-repeat:no-repeat;
+		background-size: cover;
+  }

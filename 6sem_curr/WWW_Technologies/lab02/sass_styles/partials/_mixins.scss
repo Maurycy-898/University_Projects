@@ -1,0 +1,40 @@
+  
+
+
+  @mixin bordered($color) {
+    border: $base-border-thickness solid $color;
+  }
+
+  @mixin base_nav_btn {
+    @include bordered($base-navbtn-border-color);
+    color: $base-navbtn-text-color;
+    background-color: $base-navbtn-bg-color;
+    font-weight: normal;
+  }
+
+  @mixin selected_nav_btn {
+    @include bordered($second-navbtn-border-color);
+		color: $second-navbtn-text-color;
+		background-color:$second-navbtn-bg-color;
+		font-weight: bold;
+  }
+
+  @mixin reset_position {
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @function set_color($color) {
+    @if (lightness($color) > 50) {
+      @return $dark-text-color;
+    }
+    @else {
+      @return $light-text-color;
+    }
+  }
+
+  @function decreased_z_index($val) {
+    @return $curr-z-index - $val;
+  }

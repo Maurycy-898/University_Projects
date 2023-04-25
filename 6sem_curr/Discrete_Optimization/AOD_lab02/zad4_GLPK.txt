@@ -1,0 +1,41 @@
+/* Author: Maurycy Sosnowski */
+
+/* Grid size params: n, m */
+param n integer, >= 1;
+param m integer, >= 1;
+
+/* Camera range */
+param k integer, >= 1;
+
+/* Location of the containers: if (i, j) == 1 there is a container, else if == 0 then no*/
+param containers{i in 1..m, j in 1..n} binary;
+
+/* Location of the cameras: if (i, j) == 1 there is a camera, else if == 0 then no */
+var x{i in 1..m, j in 1..n} binary;
+
+/* Minimize amount of the cameras */
+minimize cost: sum{i in 1..m, j in 1..n} x[i,j];
+
+/* Make sure camera is not on the same spot as container */
+s.t. free: (sum{i in 1..m, j in 1..n} x[i,j] * containers[i,j]) == 0;
+
+/* Make sure each container is seen by the camera */
+s.t. monitored{i in 1..m, j in 1..n : containers[i, j] == 1}: 
+(sum{p in max(i-k, 1)..min(i+k, m)} x[p, j]) + (sum{p in max(j-k, 1)..min(j+k, n)} x[i, p]) >= 1;
+
+
+/* -------------------------------------------- PARAMS ----------------------------------------- */
+data;
+
+param n := 5;
+param m := 5;
+param k := 2; /* 3 */
+
+param containers :      1   2   3   4   5 :=
+           			1   0   1   0   1   0
+           			2   1   0   0   1   1
+           			3   1   1   1   0   0
+           			4   0   0   1   0   1     
+           			5   0   1   1   1   0;            
+
+end;

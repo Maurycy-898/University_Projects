@@ -1,0 +1,71 @@
+/* Author: Maurycy Sosnowski */
+
+/* The set of monitored districts */
+set Districts;
+
+/* The set of policemen shifts */
+set Shifts;
+
+/* Limit of cars for each district and shift */
+param cars_per_DS_limit{d in Districts, s in Shifts} integer;
+
+/* Minimum cars for each district and shift */
+param cars_per_DS_required{d in Districts, s in Shifts} integer;
+
+/* Minimum cars for each shift */
+param cars_per_S_required{s in Shifts} integer;
+
+/* Minimum cars for each district */
+param cars_per_D_required{d in Districts} integer;
+
+/* Cars for each shift and district */
+var x{d in Districts, s in Shifts} integer;
+
+/* Minimize amount of cars needed */
+minimize cost: sum{d in Districts, s in Shifts} x[d, s];
+
+/* Make sure there is not too much cars in each shift and district */
+s.t. max_cars_per_DS{d in Districts, s in Shifts}: 
+x[d, s] <= cars_per_DS_limit[d, s];
+
+/* Make sure there are enough cars in each shift and district */
+s.t. min_cars_per_DS{d in Districts, s in Shifts}: 
+x[d, s] >= cars_per_DS_required[d, s];
+
+/* Make sure there are enough cars for each shift */
+s.t. min_cars_per_S{s in Shifts}: 
+sum{d in Districts} x[d, s] >= cars_per_S_required[s];
+
+/* Make sure there are enough cars in each district */
+s.t. min_cars_per_D{d in Districts}: 
+sum{s in Shifts} x[d, s] >= cars_per_D_required[d];
+
+
+/* -------------------------------------------- PARAMS ----------------------------------------- */
+data;
+
+set Districts := p1 p2 p3;
+
+set Shifts := zmiana1 zmiana2 zmiana3;
+
+param cars_per_DS_limit:       zmiana1  zmiana2  zmiana3 :=
+                             p1  3        7        5
+                             p2  5        7        10
+                             p3  8        12       10;
+
+param cars_per_DS_required:       zmiana1  zmiana2  zmiana3 :=
+                               p1  2        4        3
+                               p2  3        6        5
+                               p3  5        7        6;
+
+param cars_per_D_required := 
+p1  10
+p2  14
+p3  13;
+
+param cars_per_S_required := 
+zmiana1  10
+zmiana2  20
+zmiana3  18;
+
+end;

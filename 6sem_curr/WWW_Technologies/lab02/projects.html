@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+    
+<head>
+  <meta charset="UTF-8">
+  <title> My Projects</title>
+  <link rel="stylesheet" href="sass_styles/styles2.css">
+</head>    
+
+<body>
+  <main class="primary_content_wrapper">
+    <h1>
+      Projects
+    </h1>
+    <p class="adnotation">
+      - Większe projekty w których uczestniczyłem
+    </p>
+
+    <nav class="nav_buttons_group">
+      <a class="nav_button" href="home.html">Home</a>
+      <a class="nav_button" href="hobbies.html">Hobbies</a>
+      <a class="nav_button" id="selected_button" href="projects.html">Projects</a>  
+    </nav>
+    
+    <div class="main_text_container">
+      <div class="text_block_subsection">
+        <section class="paragraph_section">
+          <h2 class="paragraph_title">
+            Chińskie Warcaby
+          </h2>
+          <p class="paragraph_text">
+            Chińskie warcaby, nazywane też Trylmą, to pierwszy większy projekt dla studentów Informatyki Algorytmicznej.
+            Wymaga on głebszego przemyślenia problemu, współpracy (jest to projekt grupowy) organizacji projektu i wdrożenia poznanych do tej pory wzorców projektowych.
+            Nietypowy układ planszy i nietrywialne zasady gry dodatkowo utrudniają nam to zadanie. 
+          </p>
+        </section>
+        <img class="text_image" src="img/trylma.jpeg" alt="*checkers*">
+      </div>
+
+      <div class="text_block_subsection">
+        <section class="paragraph_section">
+          <h2 class="paragraph_title">
+            Projekt Kompilator
+          </h2>
+          <p class="paragraph_text">
+            Kompilator to wyzwanie z którym musi zmierzyć się w pewnym momencie każdy student. 
+            Jest to program do tłumaczenia kodu źródłowego w języku programowania na język maszynowy.
+            Implementowałem go w Pythonie z użyciem pakietu SLY. 
+            Projekt ten jest specyficznie oceniany - na podstawie rankingu kompilatorów w którym udało mi się zdobyć 7 miejsce.
+          </p>
+        </section>
+        <img class="text_image" src="img/compiler.jpg" alt="*tech*">
+      </div>
+      
+      <div class="text_block_subsection">
+        <section class="paragraph_section">
+          <h2 class="paragraph_title">
+            Algorytmy Metaheurystyczne
+          </h2>
+          <p class="paragraph_text">
+            Na tym kursie poznawaliśmy heurystyki i ich zastosowanie.
+            Metody heurystyczne należą do najważniejszych narzędzi sztucznej inteligencji.
+            Poznawaliśmy je na przykładzie Komiwojażera (Traveling Salesman).
+            Jest to NP trudny problem w którym musimy inteligentnie przeszukiwać przestrzeń rozwiązań.
+            Jednym z bardziej kreatywnych sposobów jest implementowany przeze mnie algorytm Koloni Mrówek,
+            którego głowny fragment kodu znajduje się poniżej.  
+          </p>
+        </section>
+        <img class="text_image" src="img/heuristics.jpg" alt="*AI*">
+      </div>
+
+      <div class="text_block_subsection">
+        <section class="code_section">
+          <h3  class="sub_paragraph_title">
+            Kod Heurystyki Ant-Colony
+          </h3>
+<pre class="code_text">
+  package algorithms;
+
+  import consts.PheromoneUpdateType;
+  import structures.aco.Ant;
+  import structures.tsp.Graph;
+  import utils.pheromone_updates.PheromoneUpdate;
+  import java.util.ArrayList;
+  import java.util.List;
+  
+  // Ant Colony Optimization
+  public class ACO extends AbstractACO {
+      @Override
+      public void initializeAnts(Graph graph, double antsFactor, int k) {
+          // create ants
+          ants = new ArrayList&lt;&gt;();
+          for (int i = 0; i &lt; ((graph.vNo - 1) *  antsFactor); i++) {
+              ants.add(new Ant(graph, (mt.nextInt(graph.vNo - 1) + 1)));
+          }
+      }
+  
+      @Override
+      public void moveAnts(Graph graph, PheromoneUpdateType updateType, int k, double max) {
+          for (Ant ant : ants) {
+              for (int i = 0; i &lt; graph.vNo; i++) {
+                  ant.goToNextCity(graph);
+                  if (updateType == PheromoneUpdateType.BY_STEP) {
+                      PheromoneUpdate.updatePheromones(updateType, graph, ant, null, 0, max, false);
+                  }
+              }
+              if (updateType == PheromoneUpdateType.DELAYED) {
+                  PheromoneUpdate.updatePheromones(updateType, graph, ant, null, 0, max, false);
+              }
+          }
+  
+          if (updateType == PheromoneUpdateType.ELITIST) {
+              PheromoneUpdate.updatePheromones(updateType, graph, null, ants, 0, max, false);
+          }
+  
+          if (updateType == PheromoneUpdateType.BY_RANK) {
+              PheromoneUpdate.updatePheromones(updateType, graph, null, ants, k,  max,  false);
+          }
+      }
+  
+      @Override
+      List&lt;Integer&gt; getBestTour() {
+          double best = Double.MAX_VALUE;
+          List&lt;Integer&gt; bestTour = null;
+          // find ant with best tour length
+          for (Ant ant: ants) {
+              if (ant.trailLength &lt; best) {
+                  best = ant.trailLength;
+                  bestTour = ant.trail;
+              }
+          }
+          return bestTour;
+      }
+  }package algorithms;
+
+import consts.PheromoneUpdateType;
+import structures.aco.Ant;
+import structures.tsp.Graph;
+import utils.pheromone_updates.PheromoneUpdate;
+import java.util.ArrayList;
+import java.util.List;
+
+// Ant Colony Optimization
+public class ACO extends AbstractACO {
+    @Override
+    public void initializeAnts(Graph graph, double antsFactor, int k) {
+        // create ants
+        ants = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; ((graph.vNo - 1) *  antsFactor); i++) {
+            ants.add(new Ant(graph, (mt.nextInt(graph.vNo - 1) + 1)));
+        }
+    }
+
+    @Override
+    public void moveAnts(Graph graph, PheromoneUpdateType updateType, int k, double max) {
+        for (Ant ant : ants) {
+            for (int i = 0; i &lt; graph.vNo; i++) {
+                ant.goToNextCity(graph);
+                if (updateType == PheromoneUpdateType.BY_STEP) {
+                    PheromoneUpdate.updatePheromones(updateType, graph, ant, null, 0, max, false);
+                }
+            }
+            if (updateType == PheromoneUpdateType.DELAYED) {
+                PheromoneUpdate.updatePheromones(updateType, graph, ant, null, 0, max, false);
+            }
+        }
+
+        if (updateType == PheromoneUpdateType.ELITIST) {
+            PheromoneUpdate.updatePheromones(updateType, graph, null, ants, 0, max, false);
+        }
+
+        if (updateType == PheromoneUpdateType.BY_RANK) {
+            PheromoneUpdate.updatePheromones(updateType, graph, null, ants, k,  max,  false);
+        }
+    }
+
+    @Override
+    List&lt;Integer&gt; getBestTour() {
+        double best = Double.MAX_VALUE;
+        List&lt;Integer&gt; bestTour = null;
+        // find ant with best tour length
+        for (Ant ant: ants) {
+            if (ant.trailLength &lt; best) {
+                best = ant.trailLength;
+                bestTour = ant.trail;
+            }
+        }
+        return bestTour;
+    }
+}
+</pre>
+        </section>
+      </div>
+    </div>
+    
+  </main>
+</body>
+</html>

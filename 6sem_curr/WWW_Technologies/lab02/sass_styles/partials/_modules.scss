@@ -1,0 +1,19 @@
+
+nav {
+  margin-top: 2.5rem;
+  height: 3rem;
+  
+  a {
+    margin-right: 10px;
+    text-decoration: none;
+	color: $base-navbtn-text-color;
+	background-color: $base-navbtn-bg-color;
+    letter-spacing: $navbtn-letter-spacing;
+	font-size: $nav-btn-font-size;
+	padding: $navbtn-padding;
+	border-radius: $base-border-radius;
+	border: solid $base-border-thickness $base-navbtn-border-color;
+	transition: all $transition-duration;
+    cursor: pointer;
+  }
+}

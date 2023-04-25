@@ -1,0 +1,147 @@
+/* Author: Maurycy Sosnowski */
+
+/* Number of cities */
+param n, integer, >= 1; 
+
+/* The cities Set */
+set Cities := {1..n};
+
+/* Start City: I */
+param I in Cities;
+
+/* Target City: J */
+param J in Cities, != I;
+
+/* The connections set */
+set Connections within Cities cross Cities; 
+
+/* Costs for each connection: (i, j) */
+param costs{(i,j) in Connections} >= 0; # c_ij the cost of arc (i,j)
+
+/* Time for each connection: (i, j) */
+param times{(i,j) in Connections} >= 0; # t_ij time of travel through arc (i,j)
+
+/* Longest allowed travel time */
+param max_time >= 0;
+
+/* Minimal cost path (1 - belongs to, 0 - otherwise)*/
+var x{(i,j) in Connections}, binary;
+
+/* Minimize total cost */
+minimize cost: sum{(i,j) in Connections} costs[i,j] * x[i,j];
+
+/* Make sure sollution is path from I to J */
+s.t. node{i in Cities}:
+(sum{(j, i) in Connections} x[j, i]) + (if i = I then 1 else 0) = 
+(sum{(i, j) in Connections} x[i, j]) + (if i = J then 1 else 0);
+
+/* Make sure time stays within constraints */
+s.t. time: 
+(sum{(i,j) in Connections} x[i,j] * times[i,j]) <= max_time;
+
+
+/* -------------------------------------------- PARAMS ----------------------------------------- */
+data;
+
+param n := 10;
+param I := 1;
+param J := 10;
+param max_time := 500;
+
+set Connections :=
+1 4
+1 5
+1 8
+1 9
+2 5
+2 7
+3 1
+3 8
+4 3
+4 6
+4 10
+5 1
+5 2
+5 4
+5 7
+5 8
+6 3
+6 4
+6 5
+7 2
+7 3
+7 4
+7 8
+8 9
+8 10
+9 2
+9 3
+10 1
+10 5
+10 7;
+
+param costs :=
+1 4 50
+1 5 54
+1 8 86
+1 9 14
+2 5 89
+2 7 80
+3 1 55
+3 8 33
+4 3 80
+4 6 82
+4 10 89
+5 1 16
+5 2 32
+5 4 42
+5 7 47
+5 8 25
+6 3 89
+6 4 86
+6 5 19
+7 2 67
+7 3 83
+7 4 38
+7 8 14
+8 9 18
+8 10 15
+9 2 59
+9 3 13
+10 1 17
+10 5 94
+10 7 21;
+
+param times :=
+1 4 250
+1 5 233
+1 8 74
+1 9 434
+2 5 58
+2 7 103
+3 1 229
+3 8 339
+4 3 102
+4 6 90
+4 10 55
+5 1 421
+5 2 341
+5 4 293
+5 7 265
+5 8 376
+6 3 57
+6 4 72
+6 5 405
+7 2 165
+7 3 87
+7 4 314
+7 8 433
+8 9 412
+8 10 427
+9 2 207
+9 3 436
+10 1 415
+10 5 30
+10 7 399;
+
+end;

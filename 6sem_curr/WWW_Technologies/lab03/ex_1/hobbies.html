@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <title> My Hobbies</title>
+  <link rel="stylesheet" href="sass_styles/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>    
+
+<body>
+  <div class="hamburger-menu">
+    <ul class="menu">
+      <li><a class="menuItem" href="home.html">Home</a></li>
+      <li><a class="menuItem" href="hobbies.html">Hobbies</a></li>
+      <li><a class="menuItem" href="projects.html">Projects</a></li>
+      <li><a class="menuItem" href="gallery.html">Gallery</a></li>
+    </ul>
+    <button class="hamburger">
+      <i class="menuIcon material-icons">menu</i>
+      <i class="closeIcon material-icons">close</i>
+    </button>
+  </div>
+
+  <main class="primary_content_wrapper">
+    <h1>
+      Hobbies
+    </h1>
+    <p class="adnotation">
+      - Co lubię robić w wolnym czasie
+    </p>
+
+    <nav class="nav_buttons_group">
+      <a class="nav_button" href="home.html">Home</a>
+      <a class="nav_button" id="selected_button" href="hobbies.html">Hobbies</a>
+      <a class="nav_button" href="projects.html">Projects</a>
+      <a class="nav_button" href="gallery.html">Gallery</a>    
+    </nav>
+
+    <div class="main_text_container">
+      <div class="text_block_subsection">
+        <section class="paragraph_section">
+          <h2 class="paragraph_title">
+            Turystyka i Sport
+          </h2>
+          <p class="paragraph_text">
+            Zawsze lubiłem podróżować, nie ważne czy w Polsce czy za granice. 
+            Dzięki podróżą możemy się zrelaksować, poznać nowych ludzi oraz odwiedzić ciekawe i piękne miejsca.
+            Najbardziej lubię aktywne wyjazdy np w góry - na narty lub zdobywać szczyty. 
+            Lubię też jogging koszykówkę i jazdę rowerem.
+          </p>
+        </section>
+        <img class="text_image" src="img/sport.jpg" alt="*mountains*">
+      </div>
+
+      <div class="text_block_subsection">
+        <section class="paragraph_section">
+          <h2 class="paragraph_title">
+            Gry i Zagadki Logiczne
+          </h2 class="paragraph_title">
+          <p class="paragraph_text">
+            Od dziecka lubiłem gry i zagadki logiczne. 
+            Jestem całkiem niezły w warcaby i młynka, a wolnej chwili lubię też porozwiązywać sudoku.
+            Ostatnio jednak najczęściej grywam w szachy które szybko stały się moją ulubioną grą planszową.
+            W jednym z ostatnich projektów implementowałem nawet silnik szachowy, który wyszedł mi całkiem nieźle,
+            rzekłbym nawet, że zbyt dobrze bo gra lepiej ode mnie :[.  
+          </p>
+        </section>
+        <img class="text_image" src="img/games.jpg" alt="*chess*">
+      </div>
+      
+      <div class="text_block_subsection"> 
+        <section class="paragraph_section">
+          <h2 class="paragraph_title">
+            Książki i Seriale
+          </h2>
+          <p class="paragraph_text">
+            Uwielbiam czytać książki. Głównie kryminały horrory i fantasy/fantastykę. Nie pogardzę też dobrym SciFi.
+            Do moich ulubionych autorów należą m.in Stephen King, Brandon Sanderson, Simmon Becket, a z polskich - Remigiusz Mróz.
+            Lubię też oglądać filmy i seriale w podobnej tematyce.
+          </p>
+        </section>
+        <img class="text_image" src="img/books.jpg" alt="*books*">
+      </div>
+    </div>
+    
+  </main>
+
+  <script src="scripts/navbar.js" ></script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="sass_styles/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="scripts/gallery.js" type="text/javascript" async="true"></script>
+</head>    
+
+<body>
+  <div class="hamburger-menu">
+    <ul class="menu">
+      <li><a class="menuItem" href="home.html">Home</a></li>
+      <li><a class="menuItem" href="hobbies.html">Hobbies</a></li>
+      <li><a class="menuItem" href="projects.html">Projects</a></li>
+      <li><a class="menuItem" href="gallery.html">Gallery</a></li>
+    </ul>
+    <button class="hamburger">
+      <i class="menuIcon material-icons">menu</i>
+      <i class="closeIcon material-icons">close</i>
+    </button>
+  </div>
+
+  <main class="primary_content_wrapper">
+    <h1>
+        Photos Library
+    </h1>
+    <p class="adnotation">
+        - galeria fajnych zdjęć
+    </p>
+    <nav class="nav_buttons_group">
+        <a class="nav_button" href="home.html">Home</a>
+        <a class="nav_button" href="hobbies.html">Hobbies</a>
+        <a class="nav_button" href="projects.html">Projects</a>
+        <a class="nav_button" id="selected_button" href="gallery.html">Gallery</a>  
+    </nav>
+
+    <div id="img-gallery-container"></div>
+  </main>
+  
+  <script src="scripts/navbar.js" ></script>
+
+</body>
+
+</html>

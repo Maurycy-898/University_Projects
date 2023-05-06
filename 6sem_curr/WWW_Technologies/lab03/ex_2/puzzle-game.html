@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Puzzle Game</title>
+	<meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body onload="init()">
+    <main>
+    <div class="game-description">
+        <h1>Puzzle Sliding Game</h1>
+        <p>Choose GRID params and select the IMAGE to start the game.</p>
+    </div>
+
+    <form class="params-input">
+        <label class="input-label">
+            ROWS: <input type="number" min="2" max="10" value="4" id="rows">
+        </label>
+        <label class="input-label">
+            COLUMNS: <input type="number" min="2" max="10" value="4" id="columns">
+        </label>
+    </form>
+
+    <div id="image-gallery"></div>
+
+    <div id="canvas-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+    </main>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/canvas.js"></script>
+</body>
+
+</html>

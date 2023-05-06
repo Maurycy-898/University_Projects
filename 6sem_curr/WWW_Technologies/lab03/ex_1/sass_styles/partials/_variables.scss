@@ -1,0 +1,77 @@
+
+// ============================================================================================
+// TEXT FORMAT VARIABLES
+// ============================================================================================
+$base-font-family: ('Courier New', Courier, monospace);
+$base-font-size: 1rem;
+$main-header-font-size: 2.5rem;
+$section-header-font-size: 2rem;
+$subsection-header-font-size: 1.5rem;
+$description-font-size: 10px;
+$nav-btn-font-size: 15px;
+$link-font-size: 13px;
+$code-section-font-size: 0.75rem;
+$navbtn-letter-spacing: 2px;
+
+// ============================================================================================
+// COLOR VARIABLES
+// ============================================================================================
+$base-text-border-color: #2b7a594f;
+$content-background-color: #ffffffb3;
+$code-background-color: #264336c9;
+$light-text-color: #ffffffbf;
+$dark-text-color: #000000bf;
+// links
+$base-link-text-color: #153326ab;
+$base-link-bg-color: #ffffff26;
+$second-link-text-color: #ffffff;
+$second-link-bg-color: #1b4332c9;
+// buttons
+$base-navbtn-bg-color: #1b4332;
+$second-navbtn-bg-color: #ffffff80;
+$base-navbtn-text-color: #ffffff;
+$second-navbtn-text-color: #1b4332;
+$base-navbtn-border-color: #ffffff80;
+$second-navbtn-border-color: #1b43326f;
+
+// ============================================================================================
+// PADDING, MARIGIN VARIABLES
+// ============================================================================================
+$main-header-margin: (0rem 0.5rem);
+$section-header-margin: (0.5rem 0rem);
+$subsection-header-margin: (1rem 0rem);
+$header-bottom-padding: (0.5rem, 0rem);
+$navbtn-padding: (10px 15px);
+$link-btn-padding: (12px 15px 10px 15px);
+$text-section-padding: (10px 15px);
+$content-padding: (2.5rem 3rem);
+$content-margin: (10vh 15vw);
+$intro-padding: (1.5rem 2rem);
+
+// ============================================================================================
+// SIZE, DIEMENSION VARIABLES
+// ============================================================================================
+$intro-width: 57.5rem;
+$intro-min-width: 35rem;
+$intro-height: 28.5rem;
+$intro-min-height: 25rem;
+$content-min-width: 45rem;
+$face-img-min-width:20rem;
+$code-section-height: 25rem;
+
+// ============================================================================================
+// OTHER VARIABLES
+// ============================================================================================
+$base-border-thickness: 2px;
+$header-border-thickness: 3px;
+$base-border-radius: 1rem;
+$intro-border-radius: (1rem 0% 0% 1rem);
+$face-img-border-radius: 2%;
+$transition-duration: 0.75s;
+$curr-z-index: 50;
+
+// ============================================================================================
+// PICTURE AND IMAGE VARIABLES
+// ============================================================================================
+$bg-img: url("../img/background.avif");
+$face-img: url("../img/face3.jpg");

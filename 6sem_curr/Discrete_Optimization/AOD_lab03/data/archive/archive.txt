@@ -1,0 +1,38 @@
+// working copy - Dials alg
+  // const int maxBuckets = W * V + 1;
+
+  // bucketSet_t buckets[maxBuckets];
+  // intVect_t dists(V + 1, INT_MAX);
+
+  // dists[s] = 0;
+  // buckets[0].insert(s);
+
+  // int bucketIdx = 0;
+  // while (true) {
+  //   while (bucketIdx < maxBuckets && buckets[bucketIdx].empty()) {
+  //     bucketIdx++;
+  //   } if (bucketIdx >= maxBuckets) break;
+
+  //   int v = *buckets[bucketIdx].begin();
+  //   buckets[bucketIdx].erase(v);
+
+  //   for (auto adjEdge : adj[v]) {
+  //     int w = adjEdge.first;  // weight 
+  //     int u = adjEdge.second; // adjacent
+      
+  //     int altDist = dists[v] + w;
+  //     int currentDist = dists[u]; 
+
+  //     if (altDist < currentDist) {
+  //       if (currentDist != INT_MAX) {
+  //         buckets[currentDist].erase(u);
+  //       }
+  //       dists[u] = altDist;
+  //       buckets[altDist].insert(u);
+  //     }
+  //   }
+  // }
+  // // return list of distances
+  // return dists;
+
+// Other ...

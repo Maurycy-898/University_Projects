@@ -10,6 +10,7 @@
 #include <cmath>
 #include <climits>
 #include <iostream>
+#include "radix_heap.hpp"
 
 
 // CONST VALUES
@@ -19,14 +20,15 @@ enum graph_T { DIRECTED, UNDIRECTED };
 
 // HELPFUL DEFINED TYPES
 typedef std::pair<uint64_t, uint64_t> edge_t;
-typedef std::unordered_set<int> bucketSet_t;
+typedef std::list<uint64_t> bucket_t;
 
 typedef std::list<edge_t> edgeList_t;
 typedef std::vector<edge_t> edgeVect_t;
 
-typedef std::list<uint64_t> intList_t;
-typedef std::vector<uint64_t> intVect_t;
+typedef std::list<uint64_t> iList_t;
+typedef std::vector<uint64_t> iVect_t;
 
+typedef radix_heap::pair_radix_heap<uint64_t, uint64_t> radixHeap_t;
 typedef std::priority_queue <edge_t, edgeVect_t,
         std::greater<edge_t>> minHeap_t; // min binaary heap
 
@@ -46,42 +48,48 @@ class Graph {
     ~Graph(); 
 
     // shortest path algorithms:
-    intVect_t dijkstraPQ(uint64_t s);
-    intVect_t dialAlgorithm(uint64_t s);
-    intVect_t radixHeapAlg(uint64_t s);
+    iVect_t dijkstraPQ(uint64_t s);
+    iVect_t dialAlgorithm(uint64_t s);
+    iVect_t radixHeapAlg(uint64_t s);
+    iVect_t radixHeapAlg2(uint64_t s);
     
     // only to given destination
     uint64_t dijkstraPQ(uint64_t s, uint64_t d);
     uint64_t dialAlgorithm(uint64_t s, uint64_t d);
     uint64_t radixHeapAlg(uint64_t s, uint64_t d);
+    uint64_t radixHeapAlg2(uint64_t s, uint64_t d);
 };
 
 
 // RADIX HEAAP IMPL
 typedef std::pair<uint64_t, uint64_t> range_t;
-typedef std::pair<uint64_t, uint64_t> intPair_t;
-const range_t NO_RANGE{-1ULL, -1ULL};
+typedef std::pair<uint64_t, uint64_t> iPair_t;
+typedef std::list<iPair_t> iPairList_t;
 
-class radixBucket {
+class RadixBucket {
   public:
+    static constexpr range_t NO_RANGE = {-1ULL, -1ULL};
+    static constexpr iPair_t NO_PAIR  = {-1ULL, -1ULL};
+
     range_t range;
-    edgeList_t vtxs;
+    iPairList_t vtxs;
     
-    radixBucket();
-    radixBucket(range_t range);
-    radixBucket(uint64_t from, uint64_t to);
+    RadixBucket();
+    RadixBucket(range_t range);
+    RadixBucket(uint64_t from, uint64_t to);
 
     void addVtx(uint64_t vtx, uint64_t weight);
-    void addVtx(edge_t vtx);
+    void addVtx(iPair_t vtx);
 
-    void erase(edge_t vtx);
+    void erase(iPair_t vtx);
     uint64_t min();
-    edge_t first();
+    iPair_t first();
     
     void pop_first();
     void clear();
     bool empty();
     bool inRange(uint64_t w);
+    
     // void printBucket() {
     //   std::cout << "rng:[" << range.first << "," << range.second << "], elems:{";
     //   for (auto e : vtxs) {
@@ -91,32 +99,34 @@ class radixBucket {
     // }
 };
 
-typedef std::vector<radixBucket> bucketVect_t;
 
-class radixHeap {
+// represents vector of buckets
+typedef std::vector<RadixBucket> bucketVect_t;
+
+class RadixHeap {
   uint64_t heapSize;
   uint64_t bucketsSize;
+  iVect_t bucketMap;
   bucketVect_t buckets;
-  intVect_t bucketMap;
-
+  
   public:
-    radixHeap(uint64_t V, uint64_t W);
+    RadixHeap(uint64_t V, uint64_t W);
 
-    void push(edge_t vtx);
-    void erase(edge_t vtx);
-    edge_t top();
+    void push(iPair_t vtx);
+    void erase(iPair_t vtx);
+    iPair_t top();
 
     void pop();
     bool empty();
-  
+
   private:
     const uint64_t CHECKED = -1;
     const uint64_t ERR_IDX = -2;
-
+    
     void reArrange();
     void updateRanges(uint64_t minDist, uint64_t updateRange) ;
     void initBuckets();
-    uint64_t findBucket(edge_t vtx);
+    uint64_t findBucket(iPair_t vtx);
 };
 
 #endif /* __GRAPH_HPP__ */

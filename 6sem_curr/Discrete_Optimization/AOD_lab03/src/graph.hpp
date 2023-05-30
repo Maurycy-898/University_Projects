@@ -127,6 +127,7 @@ class RadixHeap {
     void updateRanges(uint64_t minDist, uint64_t updateRange) ;
     void initBuckets();
     uint64_t findBucket(iPair_t vtx);
+    uint64_t findBucket(iPair_t vtx, int from);
 };
 
 #endif /* __GRAPH_HPP__ */

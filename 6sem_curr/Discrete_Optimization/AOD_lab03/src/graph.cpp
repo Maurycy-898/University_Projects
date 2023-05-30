@@ -399,16 +399,18 @@ bool RadixHeap::empty() {
 void RadixHeap::reArrange() {
   if (!this->buckets.front().empty()) return;
 
-  uint64_t firstNotEmptyIdx = 0;
-  while (this->buckets[firstNotEmptyIdx].empty() && firstNotEmptyIdx < this->bucketsSize) { 
+  int firstNotEmptyIdx = 0;
+  while (this->buckets[firstNotEmptyIdx].empty() && (uint64_t)firstNotEmptyIdx < this->bucketsSize) { 
     firstNotEmptyIdx++;
-  }  if (firstNotEmptyIdx == this->bucketsSize) return;
+  }  if ((uint64_t)firstNotEmptyIdx == this->bucketsSize) return;
   
   this->updateRanges(this->buckets[firstNotEmptyIdx].min(), firstNotEmptyIdx);
   this->buckets[firstNotEmptyIdx].range = RadixBucket::NO_RANGE;
   while (!this->buckets[firstNotEmptyIdx].empty()) {
     iPair_t vtx = this->buckets[firstNotEmptyIdx].first();
-    this->push(vtx);
+    uint64_t bucketIdx = this->findBucket(vtx, firstNotEmptyIdx-1);
+    this->buckets[bucketIdx].addVtx(vtx);
+    this->bucketMap[vtx.second] = bucketIdx;
     this->buckets[firstNotEmptyIdx].pop_first();
   }
 }
@@ -436,7 +438,16 @@ void RadixHeap::initBuckets() {
 
 uint64_t RadixHeap::findBucket(iPair_t vtx) {
   uint64_t weight = vtx.first;
-  for (uint64_t i = 0; i < this->bucketsSize; ++i) {
+  for (int i = (int) this->bucketsSize-1; i >= 0; --i) {
+    if (this->buckets[i].inRange(weight)) { 
+      return i;
+    }
+  } throw "No bucket containing vertex found";
+}
+
+uint64_t RadixHeap::findBucket(iPair_t vtx, int from) {
+  uint64_t weight = vtx.first;
+  for (int i = from; i >= 0; --i) {
     if (this->buckets[i].inRange(weight)) { 
       return i;
     }

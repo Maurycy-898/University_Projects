@@ -1,0 +1,38 @@
+<div class="edit-note-info">
+  <div class="info-container">
+    <div class="info-bar-title">
+      <h1>View / Edit Note</h1>
+    </div>
+    <div class="basic-btn">
+    <a href="/notes">Back To Notes</a>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <form action="/notes/item/<%= noteID %>?_method=PUT" method="POST">
+      <div style="left:1px; top:1px; right: 1px;">
+        <input class="basic-input" type="text" id="title" name="title" value="<%= note.title %>" placeholder="Title">
+      </div>
+
+      <div>
+        <textarea class="basic-txt-area" id="body" name="body" placeholder="Take a note..." rows="12"><%= note.body %></textarea>
+      </div>
+
+      <div>
+        <button class="basic-btn" type="submit">Update Note</button>
+      </div>
+    </form>
+  
+    <form action="/notes/item-delete/<%= noteID %>?_method=DELETE" method="POST">
+      <button class="basic-btn" onclick="tokenizeData()" type="submit">Delete Note</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function tokenizeData() {
+    const jwt = require('jwt');
+    const title = document.title
+  }
+
+</script>

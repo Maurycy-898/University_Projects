@@ -1,0 +1,113 @@
+/* Author: Maurycy Sosnowski */
+
+/* Graph size */
+param n, integer, > 1;
+set Nodes := {1..n};
+
+param SourceNode in Nodes, default 1;
+param TargetNode in Nodes, != SourceNode, default n;
+
+set Arcs within Nodes cross Nodes;
+
+param Capacities{(i,j) in Arcs}, >= 0;
+
+var x{(i,j) in Arcs}, >= 0, <= Capacities[i,j];
+
+var totalFlow, >= 0;
+
+s.t. node{i in Nodes}:
+   sum{(j,i) in Arcs} x[j,i] + (if i = SourceNode then totalFlow)
+   = /* must be equal to */
+   sum{(i,j) in Arcs} x[i,j] + (if i = TargetNode then totalFlow);
+
+maximize obj: totalFlow;
+
+data;
+param n := 32;
+
+param SourceNode := 1;
+param TargetNode := 32;
+
+param: Arcs : Capacities :=
+1 2 8
+1 3 11
+1 5 23
+1 9 21
+1 17 12
+2 4 11
+2 6 11
+2 10 9
+2 18 4
+3 4 10
+3 7 2
+3 11 16
+3 19 4
+4 8 1
+4 12 1
+4 20 8
+5 6 16
+5 7 14
+5 13 13
+5 21 15
+6 8 2
+6 14 4
+6 22 1
+7 8 6
+7 15 8
+7 23 7
+8 16 10
+8 24 16
+9 10 16
+9 11 8
+9 13 13
+9 25 6
+10 12 6
+10 14 6
+10 26 8
+11 12 4
+11 15 3
+11 27 8
+12 16 15
+12 28 5
+13 14 7
+13 15 7
+13 29 5
+14 16 12
+14 30 8
+15 16 9
+15 31 8
+16 32 10
+17 18 8
+17 19 1
+17 21 15
+17 25 10
+18 20 5
+18 22 3
+18 26 6
+19 20 8
+19 23 2
+19 27 3
+20 24 8
+20 28 12
+21 22 8
+21 23 3
+21 29 7
+22 24 9
+22 30 13
+23 24 11
+23 31 10
+24 32 4
+25 26 6
+25 27 4
+25 29 3
+26 28 13
+26 30 4
+27 28 2
+27 31 2
+28 32 25
+29 30 5
+29 31 16
+30 32 12
+31 32 10;
+
+end;

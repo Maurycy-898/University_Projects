@@ -1,0 +1,136 @@
+:root {
+  --background-color: #ffc93c;
+  --second-bg-color: #ff9a3c;
+  --text-primary-color: #155263;
+  --additional-color: #ff6f3c;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary-color);
+  font-weight: 300;
+  font-size: 1.2rem;
+  background-image: url(../img/noise-bg.png);
+}
+
+h1,h2,h3,h4,h5,h6,a {
+  font-family: 'Unbounded', cursive;
+  font-weight: 800;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-primary-color);
+}
+
+.info-container {
+  margin: 1rem 5rem;
+  padding: 0 1rem;
+  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.info-bar-title {
+  display: block;
+  margin: 10px;
+  font-size: 1.5rem;
+}
+
+.note-dashboard {
+  margin: 1rem 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.note-container {
+  background-color: var(--second-bg-color);
+  border-radius: 2rem;
+  padding: 1rem;
+  width: 22rem;
+  height: 12rem;
+  margin: 0rem 0rem 1rem 1rem;
+}
+
+.note-container:hover {
+  background-color: var(--additional-color);
+  color: var(--background-color);
+}
+
+.form-container {
+  margin: 1rem 5rem;
+  text-align: center;
+}
+
+.basic-btn {
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+  vertical-align: middle;
+  background-color: var(--additional-color);
+  color: var(--background-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.basic-btn a {
+  color: var(--background-color);
+}
+
+.basic-btn:hover {
+  background-color: var(--second-bg-color);
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.basic-input, .basic-txt-area {
+  color: var(--text-primary-color);
+  background-color: var(--second-bg-color);
+  width: 70%;
+  border-radius: 1rem;
+  border: none;
+  padding: 1rem;
+  padding-left: 1.2rem;
+  font-size: 1.2rem;
+  margin: 5px;
+  resize:none;
+}
+
+.basic-txt-area {
+  max-height: 15rem;
+}
+
+.form-container button {
+  width: 72%;
+  font-size: 1.2rem;
+  margin: 5px;
+}
+
+.add-note-info .info-bar-title .edit-note-info {
+  margin-right: 4rem;
+}
+
+.add-note-info .edit-note-info .info-container {
+  justify-content: center;
+}
+
+.home-container {
+  margin-top: 10rem;
+  text-align: center;
+}
+
+.home-btn {
+  margin-top: 5rem;
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+}
+

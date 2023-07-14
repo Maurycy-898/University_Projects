@@ -1,0 +1,28 @@
+<div>
+
+  <div class="info-container">
+    <div class="info-bar-title">
+      <h1>Hello, here are your notes</h1>
+    </div>
+    <div class="basic-btn">
+      <a href="/notes/add">+ Add New Note</a>
+    </div>
+  </div>
+
+  <div class="note-dashboard">
+    <% if (notes.length > 0) { for(var i=0; i < notes.length; i++) { %>
+      <a  class="note-container" href="/notes/item/<%= notes[i]._id %>">
+        <h5><%= notes[i].title %></h5>
+        <p><%= notes[i].body %></p>
+      </a>
+    <%  }} else { %>
+      <div>
+        <h2>Okay...</h2>
+        <h4>Let's start with your first note!<br/><br/>
+          <a href="/notes/add">Create one!</a>
+        </h4>
+      </div>
+    <% } %>
+  </div>
+
+</div>

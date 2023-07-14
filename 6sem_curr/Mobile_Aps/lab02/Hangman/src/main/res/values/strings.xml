@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Hangman</string>
+
+    <string name="restart_btn_name">TRY AGAIN</string>
+    <string name="hangman_state_image">Hangman State Image</string>
+    <string name="word_to_guess">Word To Guess</string>
+    <string name="start_score">0</string>
+
+    <string-array name="word_array">
+        <item>mouse</item>
+        <item>kitchen</item>
+        <item>violent dog</item>
+        <item>stray cat</item>
+        <item>policeman</item>
+        <item>soldier</item>
+        <item>water drop</item>
+        <item>ala ma kota</item>
+        <item>król jagiełło</item>
+        <item>rozpracować</item>
+    </string-array>
+
+</resources>

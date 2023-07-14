@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/hangman_state"
+        android:layout_width="340dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/hangman_state_image"
+        android:minWidth="280dp"
+        android:minHeight="175dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/stage_0"
+        tools:srcCompat="@drawable/one" />
+
+    <TextView
+        android:id="@+id/word_to_guess"
+        android:layout_width="315dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/word_to_guess"
+        android:textAlignment="center"
+        android:background="@color/guess_text_bg"
+        android:paddingTop="5dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:letterSpacing="0.1"
+        android:fontFamily="monospace"
+        android:textFontWeight="700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hangman_state" />
+
+    <TextView
+        android:id="@+id/guesses_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start_score"
+        android:fontFamily="monospace"
+        android:textFontWeight="700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/word_to_guess" />
+
+    <TextView
+        android:id="@+id/wrong_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start_score"
+        android:fontFamily="monospace"
+        android:textFontWeight="700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toEndOf="@+id/guesses_no"
+        app:layout_constraintTop_toBottomOf="@+id/word_to_guess" />
+
+    <TextView
+        android:id="@+id/correct_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/start_score"
+        android:fontFamily="monospace"
+        android:textFontWeight="700"
+        app:layout_constraintEnd_toStartOf="@+id/guesses_no"
+        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/word_to_guess" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/guess_letters_grid"
+        android:layout_width="315dp"
+        android:layout_height="200dp"
+        android:minWidth="280dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guesses_no"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/restart_btn"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/replay_btn_bg"
+        android:text="@string/restart_btn_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guess_letters_grid"
+        app:layout_constraintVertical_bias="0.45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

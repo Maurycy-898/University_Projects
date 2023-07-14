@@ -1,6 +1,0 @@
-g++ -g -Wall -std=c++2a -c src/graph.cpp -o out/graph.o 
-g++ -g -Wall -std=c++2a  ./out/graph.o  ./out/graph_utils.o ./out/program.o -o out/program
-
-Compilation succeeded!!!
-Running the program...
-

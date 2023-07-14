@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Minesweeper</string>
+
+    <string name="neutral">😐</string>
+    <string name="smile">😊</string>
+    <string name="sad">😞</string>
+    <string name="button_flag">Flag  🏴</string>
+    <string name="button_bomb">Bomb  💣</string>
+    <string name="field_flag">🏳️</string>
+    <string name="bomb">💣</string>
+    <string name="count">000</string>
+</resources>

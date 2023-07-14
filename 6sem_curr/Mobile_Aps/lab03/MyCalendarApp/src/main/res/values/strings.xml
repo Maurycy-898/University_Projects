@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Calendar</string>
+    <string name="edit_activity_title">Create Event</string>
+    <string name="list_events_activity_title">Event List</string>
+
+    <string name="add_event">+ ADD EVENT</string>
+    <string name="show_events">+ SHOW EVENTS</string>
+    <string name="confirm_add_event">CONFIRM TO ADD</string>
+    <string name="edit_event">EDIT</string>
+    <string name="delete_event">DELETE</string>
+    <string name="title_prompt">Title</string>
+    <string name="description_prompt">Description</string>
+    <string name="closest_event_title">Closest Event Title</string>
+    <string name="closest_event_description">Closest Event Description</string>
+</resources>

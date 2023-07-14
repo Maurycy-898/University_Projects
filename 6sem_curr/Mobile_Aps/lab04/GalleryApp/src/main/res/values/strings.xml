@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Image_Gallery</string>
+    <string name="gallery_image_description">gallery image</string>
+    <string name="image_rating_description">image_rating_description</string>
+    <string name="base_text_view">TextView</string>
+    <string name="switch_mode_btn">Switch Mode</string>
+    <string name="hint_mode_view">Mode: View Content</string>
+    <string name="hint_mode_edit">Mode: Edit Content</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+<!--    App related-->
+    <string name="app_name">TicTacToe</string>
+
+<!--    Game related-->
+    <string name="FieldX">X</string>
+    <string name="FieldO">O</string>
+    <string name="FieldE">_</string>
+
+</resources>

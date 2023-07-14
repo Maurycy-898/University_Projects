@@ -8,11 +8,11 @@ enum class GraphType {
     DIRECTED, UNDIRECTED
 }
 
-
 /** Graph representation */
 class Graph(val size: Int, val type: GraphType) {
     // Edges as List of Lists of vertices connected to each vertex (represented by index)
-    val edges = ArrayList( List<LinkedList<Int>>((size + 1)) { LinkedList() } )
+    val edges = ArrayList( List<LinkedList<Int>>((size + 1)) {
+        LinkedList() } )
 
     /** Add new Edge to the Graph */
     fun addEdge(v: Int, w: Int) {
@@ -183,7 +183,7 @@ class Graph(val size: Int, val type: GraphType) {
                 }
             }
 
-            val gT = Graph.transpose(g)
+            val gT = transpose(g)
             visited.forEachIndexed { idx, _ -> visited[idx] = false }
 
             while (stack.size > 0) {
@@ -228,7 +228,7 @@ class Graph(val size: Int, val type: GraphType) {
             }
             val color0 = LinkedList<Int>()
             val color1 = LinkedList<Int>()
-            colors.forEachIndexed() { v, color ->
+            colors.forEachIndexed { v, color ->
                 if (color == 0) {
                     color0.add(v)
                 }
